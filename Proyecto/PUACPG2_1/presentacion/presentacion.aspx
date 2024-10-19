@@ -235,20 +235,20 @@
             <div class="footer-border-bottom pb-6 mb-5">
                 <div class="row">
                     <div class="col-lg-4 col-xl-3">
-                        <h4 class="text-white">
+                      <%--  <h4 class="text-white">
                             Sign up to Get Latest Updates
-                        </h4>
+                        </h4>--%>
                     </div>
                     <div class="col-lg-4 col-xl-6">
-                        <form class="d-flex flex-row mb-2 p-1 bg-white input-group">
+<%--                        <form class="d-flex flex-row mb-2 p-1 bg-white input-group">
                             <input type="email" class="form-control rounded-0 border-0" placeholder="you@yoursite.com">
                             <button class="btn btn-secondary rounded-0 flex-shrink-0" type="submit">Subscribe</button>
-                        </form>
+                        </form>--%>
                     </div>
                     <div class="col-lg-4 col-xl-3">
                         <div class="text-lg-end text-white">
-                            <span class="h6">Call Us On</span><br>
-                            <span class="h3">1-800-222-000</span>
+                            <span class="h6">Ponte en contacto</span><br>
+                            <span class="h3">mgarciag43@miumg.edu.gt</span>
                         </div>
                     </div>
                 </div>
@@ -258,18 +258,19 @@
                     <div class="mb-4">
                         <img src="static/img/logo-light.svg" title="" alt="">
                     </div>
-                    <div class="text-white-65 mb-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+                    <div class="text-white-65 mb-4 text-white">Visita nuestras redes sociales.</div>
+                    <p></p>
                     <div class="nav footer-socila-icon">
-                        <a href="#">
+                        <a href="https://www.facebook.com/">
 <i class="fab fa-facebook-f"></i>
 </a>
-                        <a href="#">
+                        <a href="https://twitter.com/login">
 <i class="fab fa-twitter"></i>
 </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/?hl=es">
 <i class="fab fa-instagram"></i>
 </a>
-                        <a href="#">
+                        <a href="https://es.linkedin.com/">
 <i class="fab fa-linkedin-in"></i>
 </a>
                     </div>
@@ -278,19 +279,10 @@
                     <h5 class="text-white h6 mb-4">Customer</h5>
                     <ul class="list-unstyled white-link footer-links">
                         <li>
-                            <a href="#">Get Corpo</a>
+                            <a href="#">Asociaciones</a>
                         </li>
                         <li>
-                            <a href="#">Documentation</a>
-                        </li>
-                        <li>
-                            <a href="#">Help center</a>
-                        </li>
-                        <li>
-                            <a href="#">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact us</a>
+                            <a href="#">Documentación</a>
                         </li>
                     </ul>
                 </div>
@@ -303,14 +295,7 @@
                         <li>
                             <a href="#">Blog</a>
                         </li>
-                        <li>
-                            <a href="#">Join our team</a>
-                        </li>
-                        <li>
-                            <a href="#">Elements</a>
-                        </li>
-                        <li>
-                            <a href="#">Products</a>
+
                         </li>
                     </ul>
                 </div>
@@ -318,24 +303,24 @@
                     <h5 class="text-white h6 mb-4">Company</h5>
                     <ul class="list-unstyled white-link footer-links">
                         <li>
-                            <a href="#">About</a>
+                            <a href="#">Sobre Nosotros</a>
                         </li>
-                        <li>
+                      <%--  <li>
                             <a href="#">Careers</a>
-                        </li>
-                        <li>
+                        </li>--%>
+             <%--           <li>
                             <a href="#">Legal &amp; Security</a>
-                        </li>
+                        </li>--%>
                         <li>
                             <a href="#">Terms of use</a>
                         </li>
-                        <li>
+<%--                        <li>
                             <a href="#">We're hiring!</a>
-                        </li>
+                        </li>--%>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-lg-3 my-4">
-                    <h5 class="text-white h6 mb-4">Company</h5>
+                    <h5 class="text-white h6 mb-4">Miembros Líderes</h5>
                     <div class="white-link">
                         <div class="d-flex pb-3">
                             <div class="avatar avatar-lg rounded">
@@ -362,7 +347,7 @@
     </div>
     <div class="footer-bottom footer-border-top light py-3">
         <div class="container text-center">
-            <p class="m-0">© 2021 copyright <a href="#" class="text-reset text-white">Bootdey.com</a></p>
+            <p class="m-0">© 2024 copyright <a href="#" class="text-reset text-white">PUAC.com</a></p>
         </div>
     </div>
 </footer>
