@@ -1,0 +1,213 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PUAC SITE</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <style>
+        body{    
+           width:100%;
+           overflow-x: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+            <asp:TextBox ID="TxtidUser" runat="server" style="display:none"></asp:TextBox>
+               <asp:TextBox ID="TxidEmpresa" runat="server" style="display:none"></asp:TextBox>
+               <asp:TextBox ID="TxidRol" runat="server" style="display:none"></asp:TextBox>
+
+        
+                <script>
+                    $( document ).ready(function() {
+                        Permisos();
+
+                   });
+
+
+            function Permisos() {
+
+                var user = $("#TxtidUser").val();
+                var Rol = $("#TxidRol").val();
+
+                    // vista usuarios(para cualquier persona)
+                    if (user == "0" && Rol == "0") {
+                        $(".permisoAd").hide();
+                        $(".permisoEv").hide();
+                        $(".permisoDo").hide();
+                        $(".permisoVo").hide();
+                        $(".permisoFo").hide();
+                        $(".permisoUs").hide();
+                        $(".SessionClose").hide();
+                        $(".permisoInst").hide();
+                        $(".btnUsuSave").hide();
+                    }
+
+
+                     // administrador
+                    if (user != "" && Rol  == "1") {
+                        $(".permisoAd").show();
+                        $(".permisoEv").show();
+                        $(".permisoDo").show();
+                        $(".permisoVo").show();
+                        $(".permisoFo").show();
+                        $(".permisoUs").show();
+                        $(".SessionClose").show();
+                        $(".permisoInst").show();
+                        $(".InSesion").hide();
+                        $(".btnUsuEli").show();
+                        $(".btnUsuSave").show();
+                    }
+
+                    // empresa
+                if (user != "" && Rol == "2") {
+                        $(".permisoInst").hide();
+                        $(".SessionClose").show();
+                        $(".InSesion").hide();
+                        $(".btnUsuEli").show();
+                        $(".btnUsuSave").show();
+
+                    }
+
+
+                    // voluntario
+                    if (user != "" && Rol == "3") {
+                        //$(".permisoAd").hide();
+                        //$(".permisoEv").hide();
+                        //$(".permisoDo").hide();
+                        //$(".permisoVo").hide();
+                        //$(".permisoFo").hide();
+                        //$(".permisoUs").hide();
+                        $(".permisoInst").hide();
+                        $(".SessionClose").show();
+                        $(".InSesion").hide();
+                        $(".btnUsuSave").hide();
+                        $(".btnUsuEli").hide();
+                        
+                    }
+
+                    }
+
+                    function CerrarSesion() {
+
+                        $(".permisoAd").hide();
+                        $(".permisoEv").hide();
+                        $(".permisoDo").hide();
+                        $(".permisoVo").hide();
+                        $(".permisoFo").hide();
+                        $(".permisoUs").hide();
+                        $(".SessionClose").hide();
+
+
+                         $.ajax({
+                            type: 'POST',
+                            url: '../Account/Servicios/LoginValido.asmx/LimpiaSesion',
+                            data: JSON.stringify(), 
+                            contentType: 'application/json',
+                                success: function (data) {
+
+                            },
+                            error: function (error) {
+                                console.log(error)
+                            }
+                        });
+
+
+
+                    }
+
+                </script>
+
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/presentacion/presentacion">PUAC</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <%--<li class="active"><a runat="server" href="~/presentacion/presentacion">Inicio</a></li>--%>
+                        <!--<li><a runat="server" href="~/">Inicio</a></li>-->
+                         <!--<li><li><a runat="server" href="~/About">Acerca de</a></li> <!-->
+                        
+                        <li><a class="permisoIn" runat="server" href="~/Instituciones/instituciones">Instituciones</a></li>  
+                        <li><a class="permisoNe" runat="server" href="~/Necesidades/necesidades">Necesidades</a></li>  
+                 <%--       <li><a  class="permisoAd" runat="server" href="~/Adopciones/admin_adopciones">Adopciones</a></li>  
+                        <li><a  class="permisoEv" runat="server" href="~/calendario_eventos/admin_evento">Eventos</a></li> --%>
+                         <li><a   class="permisoDo" runat="server" href="~/Donaciones/admin_donaciones">Donaciones</a></li>
+                         <li><a  class="permisoVo" runat="server" href="~/Voluntariado/admin_voluntariado">Voluntariado</a></li>  
+                        <li><a class="permisoFo" runat="server" href="~/Foro/admin_foro">Foro & Comunidad</a></li>  
+                        <li><a  class="permisoUs" runat="server" href="~/Usuarios/admin_usuarios">Usuarios</a></li>
+                        <li><a class="permisoInst" runat="server" href="~/Instituciones/admin_instituciones">Registro Instituciones</a></li>  
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right" style="margin-right: -300px;">
+                                <!--<li><a runat="server" href="~/dashboard/menu">Menú</a></li>-->
+                                <li><a runat="server" href="~/Contact">Contacto</a></li> 
+                                <li><a runat="server" class="InSesion" href="~/Account/Login">Iniciar sesión</a></li>
+                                <li><a class="SessionClose" runat="server" href="~/presentacion/presentacion" onclick="CerrarSesion();">Cerrar Sesión</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                                 <li><a runat="server" href="~/Contact">Contacto</a></li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+
+            </asp:ContentPlaceHolder>
+            <hr class="hideZone" />
+            <footer class="hideZone">
+                <p>&copy; <%: DateTime.Now.Year %> - PUAC ayudando a la comunidad</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
